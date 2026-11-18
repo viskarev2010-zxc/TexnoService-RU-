@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Админ-панель — база знаний</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-100 text-slate-800 antialiased">
+  <div class="mx-auto max-w-5xl px-4 py-8">
+    <header class="mb-6 flex flex-wrap items-center justify-between gap-3">
+      <div>
+        <h1 class="text-xl font-semibold tracking-tight">Управление базой знаний</h1>
+        <p class="text-sm text-slate-500">ТехноСервис · ИИ-консультант</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="/" class="text-sm text-slate-500 hover:text-slate-900">← На сайт</a>
+        <button id="logout-button" type="button" class="hidden rounded-lg border border-slate-300 px-3 py-1.5 text-sm text-slate-600 hover:bg-white">
+          Выйти
+        </button>
+      </div>
+    </header>
+
+    <section id="login-view" class="mx-auto mt-16 max-w-sm rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-base font-semibold">Вход для администратора</h2>
+      <p class="mt-1 text-sm text-slate-500">Введите пароль администратора.</p>
+      <form id="login-form" class="mt-4 space-y-3">
+        <input id="password-input" type="password" required autocomplete="current-password" maxlength="72"
+          placeholder="Пароль"
+          class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm outline-none transition focus:border-slate-900 focus:ring-1 focus:ring-slate-900" />
+        <button type="submit"
+          class="w-full rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-slate-700 disabled:opacity-50">
+          Войти
+        </button>
+        <p id="login-error" class="hidden text-sm text-red-600"></p>
+      </form>
+    </section>
+
+    <main id="dashboard-view" class="hidden space-y-6">
+      <section class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+        <h2 class="text-base font-semibold">Загрузка документа</h2>
+        <p class="mt-1 text-sm text-slate-500">Поддерживаются форматы .txt, .md, .pdf. Максимальный размер — 10 МБ.</p>
+        <form id="upload-form" class="mt-4 space-y-3">
+          <input id="file-input" type="file" accept=".txt,.md,.pdf"
+            class="block w-full cursor-pointer rounded-xl border border-dashed border-slate-300 px-4 py-6 text-sm text-slate-500 file:mr-4 file:rounded-lg file:border-0 file:bg-slate-900 file:px-4 file:py-2 file:text-sm file:text-white hover:border-slate-400" />
+          <div id="progress-wrap" class="hidden">
+            <div class="h-2 w-full overflow-hidden rounded-full bg-slate-200">
+              <div id="progress-bar" class="h-full w-0 rounded-full bg-slate-900 transition-all"></div>
+            </div>
+            <p id="progress-text" class="mt-1 text-xs text-slate-500">0%</p>
+          </div>
+          <button id="upload-button" type="submit"
+            class="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-slate-700 disabled:opacity-50">
+            Загрузить в базу знаний
+          </button>
+          <p id="upload-status" class="text-sm"></p>
+        </form>
+      </section>
+
+      <section class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+        <div class="flex items-center justify-between">
+          <h2 class="text-base font-semibold">Документы в базе</h2>
+          <button id="refresh-docs" type="button" class="text-sm text-slate-500 hover:text-slate-900">Обновить</button>
+        </div>
+        <div class="mt-4 overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="border-b border-slate-200 text-xs uppercase tracking-wide text-slate-400">
+              <tr>
+                <th class="py-2 pr-4 font-medium">Файл</th>
+                <th class="py-2 pr-4 font-medium">Фрагментов</th>
+                <th class="py-2 pr-4 font-medium">Загружен</th>
+                <th class="py-2 text-right font-medium">Действие</th>
+              </tr>
+            </thead>
+            <tbody id="documents-body" class="divide-y divide-slate-100"></tbody>
+          </table>
+          <p id="documents-empty" class="hidden py-6 text-center text-sm text-slate-400">В базе пока нет документов.</p>
+        </div>
+      </section>
+
+      <section class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+        <div class="flex items-center justify-between">
+          <h2 class="text-base font-semibold">Последние диалоги клиентов</h2>
+          <button id="refresh-messages" type="button" class="text-sm text-slate-500 hover:text-slate-900">Обновить</button>
+        </div>
+        <div id="messages-feed" class="mt-4 space-y-4"></div>
+        <p id="messages-empty" class="hidden py-6 text-center text-sm text-slate-400">Сообщений пока нет.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="/admin.js"></script>
+</body>
+</html>
