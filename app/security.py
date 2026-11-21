@@ -85,3 +85,5 @@ class RateLimiter:
 
 chat_rate_limit = RateLimiter(limit=10)
 login_rate_limit = RateLimiter(limit=5)
+feedback_rate_limit = RateLimiter(limit=20)
+search_rate_limit = RateLimiter(limit=30)

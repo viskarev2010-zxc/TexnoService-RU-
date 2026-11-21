@@ -3,104 +3,395 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ТехноСервис — ИИ-консультант</title>
+  <meta name="description" content="ТехноСервис — ремонт и настройка компьютеров и ноутбуков в Москве. Диагностика бесплатно, гарантия до года." />
+  <title>ТехноСервис — ремонт компьютеров и ноутбуков в Москве</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter", "Segoe UI", "system-ui", "sans-serif"] },
+          colors: { brand: { 50: "#eff6ff", 100: "#dbeafe", 500: "#3b82f6", 600: "#2563eb", 700: "#1d4ed8" } },
+        },
+      },
+    };
+  </script>
 </head>
-<body class="min-h-screen bg-slate-100 text-slate-800 antialiased">
-  <div class="mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-8">
-    <header class="mb-8 flex flex-wrap items-center justify-between gap-3">
-      <div class="flex items-center gap-3">
-        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-900 text-lg font-bold text-white">ТС</div>
-        <div>
-          <h1 class="text-xl font-semibold tracking-tight">ТехноСервис</h1>
-          <p class="text-sm text-slate-500">Ремонт и настройка ПК</p>
-        </div>
-      </div>
-      <span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700">ИИ-консультант на базе GigaChat</span>
-    </header>
+<body class="bg-white text-slate-800 antialiased">
+  <a href="#chat" class="sr-only focus:not-sr-only">Перейти к чату</a>
 
-    <main class="grid flex-1 gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
-      <section class="flex flex-col gap-6">
-        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-          <h2 class="text-lg font-semibold">О компании</h2>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600">
-            ТехноСервис — мастерская по ремонту и настройке компьютеров и ноутбуков.
-            Диагностика, чистка от пыли, замена комплектующих, установка Windows, удаление вирусов,
-            настройка Wi-Fi и восстановление данных. Работаем с физлицами и небольшими компаниями.
+  <header class="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
+      <a href="/" class="flex items-center gap-3">
+        <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-600 text-white">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5" aria-hidden="true">
+            <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.9-2.9 2.4-2.6Z" />
+          </svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-[15px] font-semibold tracking-tight text-slate-900">ТехноСервис</span>
+          <span class="block text-xs text-slate-500">ремонт компьютеров</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-7 text-sm text-slate-600 md:flex">
+        <a href="#services" class="transition hover:text-slate-900">Услуги</a>
+        <a href="#prices" class="transition hover:text-slate-900">Цены</a>
+        <a href="#process" class="transition hover:text-slate-900">Как работаем</a>
+        <a href="#faq" class="transition hover:text-slate-900">Вопросы</a>
+        <a href="#contacts" class="transition hover:text-slate-900">Контакты</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:+74951204567" class="hidden text-sm font-medium text-slate-900 lg:block">+7 (495) 120-45-67</a>
+        <a href="#chat" class="rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-brand-700">
+          Задать вопрос
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="border-b border-slate-200 bg-gradient-to-b from-slate-50 to-white">
+      <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-2 lg:py-16">
+        <div class="flex flex-col justify-center">
+          <span class="inline-flex w-fit items-center gap-2 rounded-full border border-brand-100 bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+            Работаем с 2014 года · более 12 000 ремонтов
+          </span>
+
+          <h1 class="mt-5 text-3xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+            Ремонт компьютеров и ноутбуков<br class="hidden sm:block" />
+            в Москве — быстро и с гарантией
+          </h1>
+
+          <p class="mt-4 max-w-xl text-[15px] leading-relaxed text-slate-600">
+            Бесплатная диагностика, честные сроки и понятные цены. Чистка от пыли, замена комплектующих,
+            установка Windows, удаление вирусов, восстановление данных. Приезжаем на дом и в офис.
           </p>
-          <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
-            <div class="rounded-xl bg-slate-50 p-3">
-              <dt class="text-slate-500">График</dt>
-              <dd class="font-medium">Пн–Сб, 10:00–19:00</dd>
-            </div>
-            <div class="rounded-xl bg-slate-50 p-3">
+
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <a href="#chat" class="rounded-lg bg-brand-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-brand-700">
+              Спросить ИИ-консультанта
+            </a>
+            <a href="#prices" class="rounded-lg border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50">
+              Смотреть цены
+            </a>
+          </div>
+
+          <dl class="mt-9 grid max-w-lg grid-cols-3 gap-4 border-t border-slate-200 pt-6 text-sm">
+            <div>
               <dt class="text-slate-500">Диагностика</dt>
-              <dd class="font-medium">Бесплатно</dd>
+              <dd class="mt-0.5 text-base font-semibold text-slate-900">0 ₽</dd>
+            </div>
+            <div>
+              <dt class="text-slate-500">Гарантия</dt>
+              <dd class="mt-0.5 text-base font-semibold text-slate-900">до 12 мес.</dd>
+            </div>
+            <div>
+              <dt class="text-slate-500">Срок ремонта</dt>
+              <dd class="mt-0.5 text-base font-semibold text-slate-900">от 40 минут</dd>
             </div>
           </dl>
         </div>
 
-        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-          <h2 class="text-lg font-semibold">Примеры вопросов</h2>
-          <p class="mt-1 text-sm text-slate-500">Нажмите, чтобы отправить вопрос консультанту.</p>
-          <div id="examples" class="mt-4 flex flex-col gap-2">
-            <button type="button" class="example rounded-xl border border-slate-200 px-4 py-2.5 text-left text-sm text-slate-700 transition hover:border-slate-900 hover:bg-slate-50">
-              Сколько стоит чистка ноутбука от пыли?
-            </button>
-            <button type="button" class="example rounded-xl border border-slate-200 px-4 py-2.5 text-left text-sm text-slate-700 transition hover:border-slate-900 hover:bg-slate-50">
-              Сколько занимает установка Windows?
-            </button>
-            <button type="button" class="example rounded-xl border border-slate-200 px-4 py-2.5 text-left text-sm text-slate-700 transition hover:border-slate-900 hover:bg-slate-50">
-              Даёте ли вы гарантию на ремонт?
-            </button>
-            <button type="button" class="example rounded-xl border border-slate-200 px-4 py-2.5 text-left text-sm text-slate-700 transition hover:border-slate-900 hover:bg-slate-50">
-              Есть ли выезд на дом?
-            </button>
-          </div>
-        </div>
-      </section>
+        <div id="chat" class="scroll-mt-24">
+          <div class="flex h-[34rem] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <div class="flex items-center justify-between gap-3 border-b border-slate-100 px-4 py-3.5">
+              <div class="flex items-center gap-3">
+                <span class="relative flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 text-xs font-semibold text-white">
+                  ИИ
+                  <span class="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-white bg-emerald-500"></span>
+                </span>
+                <div>
+                  <p class="text-sm font-semibold text-slate-900">ИИ-консультант</p>
+                  <p class="text-xs text-slate-500">Отвечает по базе знаний компании</p>
+                </div>
+              </div>
+              <button id="new-chat" type="button" class="rounded-lg px-2.5 py-1.5 text-xs font-medium text-slate-500 transition hover:bg-slate-100 hover:text-slate-900">
+                Новый диалог
+              </button>
+            </div>
 
-      <section class="flex min-h-[32rem] flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200">
-        <div class="flex items-center gap-3 border-b border-slate-100 px-5 py-4">
-          <div class="flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">ИИ</div>
-          <div>
-            <p class="text-sm font-semibold">Консультант ТехноСервис</p>
-            <p class="text-xs text-slate-500">Отвечает по базе знаний компании</p>
-          </div>
-        </div>
+            <div id="messages" class="flex-1 space-y-4 overflow-y-auto bg-slate-50/60 px-4 py-4" aria-live="polite">
+              <div class="flex justify-start">
+                <div class="max-w-[85%] rounded-2xl rounded-bl-md border border-slate-200 bg-white px-4 py-3 text-sm leading-relaxed text-slate-700">
+                  Здравствуйте! Расскажу о ценах, сроках и гарантии. Задайте вопрос или выберите готовый вариант ниже.
+                </div>
+              </div>
+            </div>
 
-        <div id="messages" class="flex-1 space-y-4 overflow-y-auto px-5 py-5">
-          <div class="flex justify-start">
-            <div class="max-w-[85%] rounded-2xl rounded-bl-sm bg-slate-100 px-4 py-3 text-sm leading-relaxed text-slate-700">
-              Здравствуйте! Задайте вопрос о наших услугах, сроках и ценах — отвечу по базе знаний.
+            <div id="typing" class="hidden items-center gap-1.5 border-t border-slate-100 px-4 py-2 text-xs text-slate-500">
+              <span class="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-400"></span>
+              <span class="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-400 [animation-delay:150ms]"></span>
+              <span class="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-400 [animation-delay:300ms]"></span>
+              <span class="ml-1">Консультант печатает…</span>
+            </div>
+
+            <div class="border-t border-slate-100 px-4 pt-3">
+              <div id="suggestions" class="mb-3 flex gap-2 overflow-x-auto pb-1"></div>
+              <form id="chat-form" class="flex items-end gap-2 pb-3">
+                <textarea id="message-input" rows="1" maxlength="2000" required
+                  placeholder="Например: сколько стоит чистка ноутбука?"
+                  class="max-h-28 flex-1 resize-none rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm outline-none transition placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100"></textarea>
+                <button id="send-button" type="submit"
+                  class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-600 text-white transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-50"
+                  aria-label="Отправить сообщение">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5" aria-hidden="true">
+                    <path d="m5 12 14-7-3.5 14L12 14l-7-2Z" />
+                  </svg>
+                </button>
+              </form>
+              <p class="pb-3 text-[11px] text-slate-400">Отвечает ИИ по документам компании. Для срочных вопросов звоните: +7 (495) 120-45-67</p>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div id="typing" class="hidden items-center gap-2 px-5 pb-2 text-xs text-slate-500">
-          <span class="h-2 w-2 animate-bounce rounded-full bg-slate-400"></span>
-          <span class="h-2 w-2 animate-bounce rounded-full bg-slate-400 [animation-delay:150ms]"></span>
-          <span class="h-2 w-2 animate-bounce rounded-full bg-slate-400 [animation-delay:300ms]"></span>
-          <span class="ml-1">Консультант печатает…</span>
+    <section id="services" class="scroll-mt-20 border-b border-slate-200 py-14">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="max-w-2xl">
+          <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Чем мы занимаемся</h2>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">
+            Берём в работу технику любых брендов: от старых ноутбуков до рабочих станций и серверов небольших офисов.
+          </p>
         </div>
 
-        <form id="chat-form" class="flex items-end gap-2 border-t border-slate-100 px-4 py-4">
-          <textarea id="message-input" rows="1" maxlength="2000" required
-            placeholder="Напишите вопрос…"
-            class="max-h-32 flex-1 resize-none rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-slate-900 focus:ring-1 focus:ring-slate-900"></textarea>
-          <button id="send-button" type="submit"
-            class="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-50">
-            Отправить
-          </button>
-        </form>
-      </section>
-    </main>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="rounded-xl border border-slate-200 p-5 transition hover:border-brand-200 hover:shadow-sm">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5Z" /><path d="M3 7l9 5 9-5M12 22V12" /></svg>
+            </div>
+            <h3 class="mt-4 text-[15px] font-semibold text-slate-900">Диагностика</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-slate-600">Найдём причину поломки и назовём стоимость до начала работ. Диагностика бесплатная.</p>
+          </article>
 
-    <footer class="mt-8 flex items-center justify-between border-t border-slate-200 pt-4 text-xs text-slate-400">
-      <span>© 2026 ТехноСервис. Демонстрационный проект RAG-консультанта.</span>
-      <a href="/admin.html" class="text-gray-400 hover:text-gray-600">Управление базой знаний (Админка)</a>
-    </footer>
-  </div>
+          <article class="rounded-xl border border-slate-200 p-5 transition hover:border-brand-200 hover:shadow-sm">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><path d="M3 7h18v10H3z" /><path d="M7 12h10M12 9v6" /></svg>
+            </div>
+            <h3 class="mt-4 text-[15px] font-semibold text-slate-900">Чистка и профилактика</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-slate-600">Убираем пыль, меняем термопасту, снижаем шум и температуру. Ноутбук перестаёт греться.</p>
+          </article>
+
+          <article class="rounded-xl border border-slate-200 p-5 transition hover:border-brand-200 hover:shadow-sm">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><path d="M4 4h16v12H4z" /><path d="M8 20h8M12 16v4" /></svg>
+            </div>
+            <h3 class="mt-4 text-[15px] font-semibold text-slate-900">Установка Windows и ПО</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-slate-600">Ставим систему, драйверы и офисные программы. Настраиваем резервные копии.</p>
+          </article>
+
+          <article class="rounded-xl border border-slate-200 p-5 transition hover:border-brand-200 hover:shadow-sm">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><path d="M12 3l8 4v6c0 4.5-3.4 7.4-8 8-4.6-.6-8-3.5-8-8V7l8-4Z" /><path d="m9 12 2 2 4-4" /></svg>
+            </div>
+            <h3 class="mt-4 text-[15px] font-semibold text-slate-900">Удаление вирусов</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-slate-600">Лечим систему без потери файлов, блокируем рекламные расширения и майнеры.</p>
+          </article>
+
+          <article class="rounded-xl border border-slate-200 p-5 transition hover:border-brand-200 hover:shadow-sm">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><path d="M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3Z" /><path d="M4 7v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7" /><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" /></svg>
+            </div>
+            <h3 class="mt-4 text-[15px] font-semibold text-slate-900">Восстановление данных</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-slate-600">Достаём фото и документы с жёстких дисков, SSD и флешек. Оценка шансов бесплатно.</p>
+          </article>
+
+          <article class="rounded-xl border border-slate-200 p-5 transition hover:border-brand-200 hover:shadow-sm">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-600">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5"><path d="M5 12a7 7 0 0 1 14 0" /><path d="M2 12a10 10 0 0 1 20 0" /><circle cx="12" cy="18" r="2" /></svg>
+            </div>
+            <h3 class="mt-4 text-[15px] font-semibold text-slate-900">Интернет и Wi-Fi</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-slate-600">Настраиваем роутеры, усиливаем сигнал, подключаем умный дом и сетевые диски.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="prices" class="scroll-mt-20 border-b border-slate-200 bg-slate-50 py-14">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Популярные услуги и цены</h2>
+            <p class="mt-2 text-sm text-slate-600">Итоговую стоимость называем после диагностики. Без скрытых доплат.</p>
+          </div>
+          <a href="#chat" class="text-sm font-medium text-brand-600 hover:text-brand-700">Не нашли услугу? Спросите консультанта →</a>
+        </div>
+
+        <div class="mt-7 overflow-hidden rounded-xl border border-slate-200 bg-white">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+              <tr>
+                <th class="px-5 py-3 font-medium">Услуга</th>
+                <th class="px-5 py-3 font-medium">Срок</th>
+                <th class="px-5 py-3 text-right font-medium">Цена</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr><td class="px-5 py-3.5">Чистка ноутбука от пыли с заменой термопасты</td><td class="px-5 py-3.5 text-slate-500">1–2 часа</td><td class="px-5 py-3.5 text-right font-medium">от 1 500 ₽</td></tr>
+              <tr><td class="px-5 py-3.5">Установка Windows с драйверами</td><td class="px-5 py-3.5 text-slate-500">от 1 часа</td><td class="px-5 py-3.5 text-right font-medium">от 1 200 ₽</td></tr>
+              <tr><td class="px-5 py-3.5">Диагностика при поломке</td><td class="px-5 py-3.5 text-slate-500">40 минут</td><td class="px-5 py-3.5 text-right font-medium text-emerald-600">бесплатно</td></tr>
+              <tr><td class="px-5 py-3.5">Замена жёсткого диска или SSD</td><td class="px-5 py-3.5 text-slate-500">1–2 часа</td><td class="px-5 py-3.5 text-right font-medium">от 900 ₽</td></tr>
+              <tr><td class="px-5 py-3.5">Удаление вирусов и рекламного ПО</td><td class="px-5 py-3.5 text-slate-500">от 1 часа</td><td class="px-5 py-3.5 text-right font-medium">от 1 000 ₽</td></tr>
+              <tr><td class="px-5 py-3.5">Восстановление данных</td><td class="px-5 py-3.5 text-slate-500">1–3 дня</td><td class="px-5 py-3.5 text-right font-medium">от 2 500 ₽</td></tr>
+              <tr><td class="px-5 py-3.5">Выезд мастера на дом или в офис</td><td class="px-5 py-3.5 text-slate-500">в день обращения</td><td class="px-5 py-3.5 text-right font-medium">от 1 000 ₽</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="scroll-mt-20 border-b border-slate-200 py-14">
+      <div class="mx-auto max-w-6xl px-4">
+        <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Как проходит ремонт</h2>
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <div class="relative">
+            <span class="text-xs font-semibold text-brand-600">ШАГ 1</span>
+            <h3 class="mt-1.5 text-[15px] font-semibold text-slate-900">Заявка и диагностика</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-slate-600">Привозите технику в мастерскую или вызывайте мастера. Диагностика занимает около 40 минут.</p>
+          </div>
+          <div>
+            <span class="text-xs font-semibold text-brand-600">ШАГ 2</span>
+            <h3 class="mt-1.5 text-[15px] font-semibold text-slate-900">Согласование стоимости</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-slate-600">Объясняем, что сломалось, и присылаем смету в мессенджер. Работы начинаем только после согласия.</p>
+          </div>
+          <div>
+            <span class="text-xs font-semibold text-brand-600">ШАГ 3</span>
+            <h3 class="mt-1.5 text-[15px] font-semibold text-slate-900">Ремонт и гарантия</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-slate-600">Выдаём акт с перечнем работ и гарантию от 3 до 12 месяцев в зависимости от услуги.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-b border-slate-200 bg-slate-900 py-12 text-white">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-6 px-4">
+        <div class="max-w-xl">
+          <h2 class="text-xl font-semibold tracking-tight">Не знаете, в чём проблема? Спросите консультанта</h2>
+          <p class="mt-2 text-sm leading-relaxed text-slate-300">
+            ИИ отвечает по нашим регламентам, прайсу и гарантийным условиям — без выдумок и навязывания услуг.
+          </p>
+        </div>
+        <a href="#chat" class="rounded-lg bg-white px-5 py-3 text-sm font-medium text-slate-900 transition hover:bg-slate-100">Открыть чат</a>
+      </div>
+    </section>
+
+    <section id="faq" class="scroll-mt-20 border-b border-slate-200 py-14">
+      <div class="mx-auto max-w-3xl px-4">
+        <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Частые вопросы</h2>
+        <div class="mt-6 divide-y divide-slate-200">
+          <details class="group py-4" open>
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-medium text-slate-900">
+              Сколько ждать ремонт?
+              <span class="text-slate-400 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Простые работы — чистка, установка Windows, замена SSD — делаем в день обращения. Сложный ремонт с заказом запчастей занимает от 2 до 5 дней.</p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-medium text-slate-900">
+              Даёте ли гарантию?
+              <span class="text-slate-400 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Да. На работы — от 3 до 12 месяцев, на установленные запчасти действует гарантия производителя. Все условия фиксируем в акте.</p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-medium text-slate-900">
+              Можно ли вызвать мастера на дом?
+              <span class="text-slate-400 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Да, выезд по Москве — от 1 000 ₽. Мастер приезжает в день обращения или на следующий день, если заявка после 18:00.</p>
+          </details>
+          <details class="group py-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-medium text-slate-900">
+              Что делать, если данные уже потеряны?
+              <span class="text-slate-400 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Не включайте диск повторно — это снижает шансы. Привозите накопитель в мастерскую, мы бесплатно оценим возможность восстановления.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts" class="scroll-mt-20 py-14">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+        <div>
+          <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Контакты</h2>
+          <p class="mt-2 max-w-md text-sm leading-relaxed text-slate-600">Приходите в мастерскую или звоните — подскажем, что делать с техникой.</p>
+
+          <dl class="mt-6 grid gap-5 text-sm sm:grid-cols-2">
+            <div>
+              <dt class="text-slate-500">Адрес</dt>
+              <dd class="mt-1 font-medium text-slate-900">Москва, ул. Профсоюзная, 42<br />офис 3, 1 этаж</dd>
+            </div>
+            <div>
+              <dt class="text-slate-500">Телефон</dt>
+              <dd class="mt-1 font-medium text-slate-900"><a href="tel:+74951204567" class="hover:text-brand-600">+7 (495) 120-45-67</a></dd>
+            </div>
+            <div>
+              <dt class="text-slate-500">Почта</dt>
+              <dd class="mt-1 font-medium text-slate-900"><a href="mailto:help@technoservice.ru" class="hover:text-brand-600">help@technoservice.ru</a></dd>
+            </div>
+            <div>
+              <dt class="text-slate-500">График</dt>
+              <dd class="mt-1 font-medium text-slate-900">Пн–Сб, 10:00–19:00<br />Вс — по записи</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+          <p class="text-sm font-medium text-slate-900">Остались вопросы по ремонту?</p>
+          <p class="mt-1.5 text-sm leading-relaxed text-slate-600">
+            Напишите в чат — ИИ-консультант отвечает мгновенно и только по официальным документам компании.
+          </p>
+          <a href="#chat" class="mt-4 inline-block rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-brand-700">Перейти в чат</a>
+          <p class="mt-4 border-t border-slate-200 pt-4 text-xs leading-relaxed text-slate-500">
+            Если консультант не помог — позвоните нам. Мы не передаём данные третьим лицам и не звоним без запроса.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-slate-50 py-10">
+    <div class="mx-auto grid max-w-6xl gap-8 px-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <p class="text-sm font-semibold text-slate-900">ТехноСервис</p>
+        <p class="mt-2 text-xs leading-relaxed text-slate-500">Сервисный центр по ремонту и обслуживанию компьютерной техники. Москва, с 2014 года.</p>
+      </div>
+      <div class="text-xs text-slate-500">
+        <p class="font-medium text-slate-700">Услуги</p>
+        <ul class="mt-2 space-y-1.5">
+          <li><a href="#services" class="hover:text-slate-900">Ремонт ноутбуков</a></li>
+          <li><a href="#services" class="hover:text-slate-900">Чистка от пыли</a></li>
+          <li><a href="#services" class="hover:text-slate-900">Установка Windows</a></li>
+          <li><a href="#services" class="hover:text-slate-900">Восстановление данных</a></li>
+        </ul>
+      </div>
+      <div class="text-xs text-slate-500">
+        <p class="font-medium text-slate-700">Компания</p>
+        <ul class="mt-2 space-y-1.5">
+          <li><a href="#process" class="hover:text-slate-900">Как мы работаем</a></li>
+          <li><a href="#prices" class="hover:text-slate-900">Цены</a></li>
+          <li><a href="#faq" class="hover:text-slate-900">Вопросы и ответы</a></li>
+          <li><a href="#contacts" class="hover:text-slate-900">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="text-xs text-slate-500">
+        <p class="font-medium text-slate-700">Правовая информация</p>
+        <ul class="mt-2 space-y-1.5">
+          <li><a href="#" class="hover:text-slate-900">Политика конфиденциальности</a></li>
+          <li><a href="#" class="hover:text-slate-900">Условия оказания услуг</a></li>
+          <li><a href="/admin.html" class="text-gray-400 hover:text-gray-600">Управление базой знаний (Админка)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mx-auto mt-8 max-w-6xl border-t border-slate-200 px-4 pt-5 text-xs text-slate-400">
+      © 2026 ТехноСервис · Демонстрационный проект RAG-консультанта на GigaChat
+    </div>
+  </footer>
 
   <script src="/app.js"></script>
 </body>
